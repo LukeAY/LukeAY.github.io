@@ -48,10 +48,13 @@ body {
 header {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
   padding: 1.25rem 2rem;
 }
 
-#theme-toggle {
+#theme-toggle,
+#xmas-toggle {
   background: none;
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -62,8 +65,31 @@ header {
   transition: border-color var(--transition), background-color var(--transition);
 }
 
-#theme-toggle:hover {
+#theme-toggle:hover,
+#xmas-toggle:hover {
   background-color: var(--card-hover);
+}
+
+#xmas-toggle.active {
+  border-color: #2d8a2d;
+  background-color: #e8f5e8;
+}
+
+[data-theme="dark"] #xmas-toggle.active {
+  border-color: #4caf50;
+  background-color: #1a2e1a;
+}
+
+/* ── Christmas trees ────────────────────────────────────── */
+.xmas-tree {
+  position: fixed;
+  pointer-events: none;
+  user-select: none;
+  font-size: 1.1rem;
+  line-height: 1;
+  animation: tree-fade 0.8s ease-out forwards;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
 }
 
 /* ── Main ───────────────────────────────────────────────── */
@@ -129,4 +155,9 @@ footer {
   padding: 1.5rem 2rem;
   font-size: 0.8rem;
   color: var(--text-secondary);
+}
+
+@keyframes tree-fade {
+  0%   { opacity: 1;   transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0;   transform: translate(-50%, -120%) scale(0.5); }
 }
