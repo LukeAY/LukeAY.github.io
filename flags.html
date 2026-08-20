@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feature Flags — Luke</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <a href="/" class="back-link" aria-label="Back to home">←</a>
+      <button id="theme-toggle" aria-label="Toggle dark mode">
+        <span id="theme-icon">☀️</span>
+      </button>
+    </header>
+
+    <!-- ── Lock screen ─────────────────────────────────────── -->
+    <div id="lock-screen">
+      <div class="lock-card">
+        <div class="lock-icon" aria-hidden="true">🔒</div>
+        <h1>Feature Flags</h1>
+        <p class="lock-hint">Enter the passphrase to continue.</p>
+        <form id="lock-form" autocomplete="off">
+          <input
+            id="lock-input"
+            type="password"
+            placeholder="Passphrase"
+            aria-label="Passphrase"
+            autofocus
+          />
+          <button type="submit">Unlock</button>
+        </form>
+        <p id="lock-error" class="lock-error" hidden>Incorrect passphrase.</p>
+      </div>
+    </div>
+
+    <!-- ── Admin panel ─────────────────────────────────────── -->
+    <main id="admin-panel" hidden>
+      <div class="admin-header">
+        <div>
+          <h1>Feature Flags</h1>
+          <p class="admin-subtitle">Changes take effect immediately and persist across visits.</p>
+        </div>
+        <button id="reset-btn" class="reset-btn">Reset all to defaults</button>
+      </div>
+
+      <ul id="flags-list" class="flags-list" role="list"></ul>
+    </main>
+
+    <footer>
+      <p>&copy; <span id="year"></span> Luke</p>
+    </footer>
+
+    <script src="flags.js"></script>
+    <script src="flags-page.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -64,16 +64,14 @@ function onMouseMove(e) {
 
 function setXmas(enabled) {
   xmasEnabled = enabled;
-  localStorage.setItem('xmasEnabled', enabled);
+  Flags.set('christmas-cursor', enabled);
   xmasBtn.classList.toggle('active', enabled);
   xmasBtn.setAttribute('aria-pressed', enabled);
 }
 
 if (isXmasSeason()) {
   xmasBtn.hidden = false;
-  // Restore preference from last visit
-  const savedXmas = localStorage.getItem('xmasEnabled');
-  setXmas(savedXmas === null ? true : savedXmas === 'true');
+  setXmas(Flags.get('christmas-cursor'));
   xmasBtn.addEventListener('click', () => setXmas(!xmasEnabled));
   document.addEventListener('mousemove', onMouseMove);
 }
