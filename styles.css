@@ -149,6 +149,26 @@ main {
   flex-shrink: 0;
 }
 
+/* ── Union flag background ──────────────────────────────────── */
+body.union-flag-bg {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80'><text y='60' font-size='60'>🇬🇧</text></svg>");
+  background-size: 80px 80px;
+  background-repeat: repeat;
+  background-color: var(--bg);
+}
+
+/* Keep page elements readable over the busy background */
+body.union-flag-bg main,
+body.union-flag-bg header,
+body.union-flag-bg footer {
+  backdrop-filter: blur(0px);
+}
+
+body.union-flag-bg .hero h1,
+body.union-flag-bg .link-card {
+  text-shadow: 0 1px 4px var(--bg);
+}
+
 /* ── Footer ─────────────────────────────────────────────── */
 footer {
   text-align: center;

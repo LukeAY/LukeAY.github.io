@@ -23,6 +23,18 @@ function applyTheme(theme) {
 // ── Footer year ─────────────────────────────────────────────
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// ── Union flag background ────────────────────────────────────
+function applyUnionFlag(enabled) {
+  document.body.classList.toggle('union-flag-bg', enabled);
+}
+
+applyUnionFlag(Flags.get('union-flag-bg'));
+
+// Keep in sync if the flag is changed in another tab (e.g. flags.html)
+window.addEventListener('storage', () => {
+  applyUnionFlag(Flags.get('union-flag-bg'));
+});
+
 // ── Christmas cursor ─────────────────────────────────────────
 // Define the festive date window (month is 0-indexed: 11 = December)
 const XMAS_START = { month: 11, day: 1  };  // 1 Dec

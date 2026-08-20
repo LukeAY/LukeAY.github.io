@@ -26,6 +26,12 @@ const FLAG_DEFINITIONS = [
       return true;
     },
   },
+  {
+    key: 'union-flag-bg',
+    label: 'Union Flag Background 🇬🇧',
+    description: 'Tiles the page background with Union Jack emoji.',
+    default: false,
+  },
   // ── Add new flags below this line ───────────────────────────────────────────
   // {
   //   key: 'my-new-feature',
