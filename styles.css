@@ -115,7 +115,8 @@ main {
   transform: translateY(-2px);
 }
 
-.link-card svg {
+.link-card svg,
+.link-card-img {
   width: 20px;
   height: 20px;
   fill: currentColor;
